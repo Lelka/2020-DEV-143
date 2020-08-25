@@ -29,4 +29,13 @@ class TicTacToeTests: XCTestCase {
         
         XCTAssertEqual(currentPlayer, nextPlayer)
     }
+    
+    func testIfPlayerCanPlayAtPosition() {
+        let expected = false
+        
+        let game = Game()
+        let actual = game.canPlayAt(index: 3)
+        
+        XCTAssertEqual(expected, actual)
+    }
 }
