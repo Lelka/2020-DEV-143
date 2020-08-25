@@ -24,4 +24,8 @@ class Game {
     func play() {
         currentPlayer = .circle
     }
+    
+    func canPlayAt(index: Int) -> Bool {
+        return false
+    }
 }
