@@ -54,4 +54,43 @@ class TicTacToeTests: XCTestCase {
         XCTAssertEqual(expectedCross, crossPlayer)
         XCTAssertEqual(expectedCircle, circlePlayer)
     }
+    
+    func testPlayerHasThreeInARowHorizontally() {
+        let game = Game()
+        game.playAt(index: 0) // cross
+        game.playAt(index: 3) // circle
+        game.playAt(index: 1) // cross
+        game.playAt(index: 4) // circle
+        game.playAt(index: 2) // cross
+        
+        XCTAssertTrue(game.boxes[0] == .cross)
+        XCTAssertTrue(game.boxes[1] == .cross)
+        XCTAssertTrue(game.boxes[1] == .cross)
+    }
+    
+    func testPlayerHasThreeInARowVertically() {
+        let game = Game()
+        game.playAt(index: 0) // cross
+        game.playAt(index: 1) // circle
+        game.playAt(index: 3) // cross
+        game.playAt(index: 2) // circle
+        game.playAt(index: 6) // cross
+        
+        XCTAssertTrue(game.boxes[0] == .cross)
+        XCTAssertTrue(game.boxes[3] == .cross)
+        XCTAssertTrue(game.boxes[6] == .cross)
+    }
+    
+    func testPlayerHasThreeInARowDiagonally() {
+        let game = Game()
+        game.playAt(index: 0) // cross
+        game.playAt(index: 3) // circle
+        game.playAt(index: 4) // cross
+        game.playAt(index: 2) // circle
+        game.playAt(index: 8) // cross
+        
+        XCTAssertTrue(game.boxes[0] == .cross)
+        XCTAssertTrue(game.boxes[4] == .cross)
+        XCTAssertTrue(game.boxes[8] == .cross)
+    }
 }
