@@ -8,6 +8,7 @@
 import Foundation
 
 protocol GameViewModelDelegate: class {
+    func gamePlay()
     func gameHasAWinner()
     func gameIsADraw()
 }
@@ -33,10 +34,13 @@ class GameViewModel {
     func playAt(index: Int) {
         if game.canPlayAt(index: index) {
             game.playAt(index: index)
-        } else if game.gameHasAWinner() {
+            delegate?.gamePlay()
             
-        } else if game.isADraw() {
-            
+            if game.gameHasAWinner() {
+                delegate?.gameHasAWinner()
+            } else if game.isADraw() {
+                delegate?.gameIsADraw()
+            }
         }
     }
 }
