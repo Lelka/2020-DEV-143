@@ -175,8 +175,10 @@ class TicTacToeTests: XCTestCase {
         game.playAt(index: 4) // circle
         game.resetGame()
         
-        let value = !game.boxes.contains(.cross) || !game.boxes.contains(.circle)
+        let value = !game.boxes.contains(.cross) && !game.boxes.contains(.circle)
+        let expectedPlayer: Player = .cross
         
-        XCTAssertFalse(value)
+        XCTAssertTrue(value)
+        XCTAssertEqual(expectedPlayer, game.currentPlayer)
     }
 }

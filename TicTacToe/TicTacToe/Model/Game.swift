@@ -2,7 +2,6 @@
 //  Game.swift
 //  TicTacToe
 //
-//  Created by Kalenga Kalele on 25/08/2020.
 //  Copyright © 2020 tictactoe. All rights reserved.
 //
 
@@ -16,19 +15,15 @@ enum Player {
 
 class Game {
     
-    var currentPlayer: Player
+    var currentPlayer: Player = .cross
     
-    var boxes = [Player]()
-    
-    init() {
-        currentPlayer = .cross
-        
+    var boxes : [Player] =  {
         var array = [Player]()
         for _ in 0...8 {
             array.append(.none)
         }
-        boxes = array
-    }
+        return array
+    }()
     
     func playAt(index: Int) {
         if canPlayAt(index: index) {
@@ -72,5 +67,15 @@ class Game {
         }
         
         return hasAWinner
+    }
+    
+    func resetGame() {
+        currentPlayer = .cross
+        
+        var array = [Player]()
+        for _ in 0...8 {
+            array.append(.none)
+        }
+        boxes = array
     }
 }
