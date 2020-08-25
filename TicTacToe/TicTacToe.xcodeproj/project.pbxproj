@@ -83,11 +83,11 @@
 		1C22905F24F501BB00C3F390 /* TicTacToe */ = {
 			isa = PBXGroup;
 			children = (
-				1C22908A24F547E700C3F390 /* ViewModel */,
-				1C22908224F5052200C3F390 /* Model */,
+				1C22908D24F54C8A00C3F390 /* Views */,
+				1C22908A24F547E700C3F390 /* ViewModels */,
+				1C22908224F5052200C3F390 /* Models */,
 				1C22906024F501BB00C3F390 /* AppDelegate.swift */,
 				1C22906224F501BB00C3F390 /* SceneDelegate.swift */,
-				1C22906424F501BB00C3F390 /* GameViewController.swift */,
 				1C22906624F501BB00C3F390 /* Main.storyboard */,
 				1C22906924F501BD00C3F390 /* Assets.xcassets */,
 				1C22906B24F501BD00C3F390 /* LaunchScreen.storyboard */,
@@ -105,20 +105,28 @@
 			path = TicTacToeTests;
 			sourceTree = "<group>";
 		};
-		1C22908224F5052200C3F390 /* Model */ = {
+		1C22908224F5052200C3F390 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				1C22908324F5053700C3F390 /* Game.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		1C22908A24F547E700C3F390 /* ViewModel */ = {
+		1C22908A24F547E700C3F390 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				1C22908B24F547FA00C3F390 /* GameViewModel.swift */,
 			);
-			path = ViewModel;
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		1C22908D24F54C8A00C3F390 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1C22906424F501BB00C3F390 /* GameViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
