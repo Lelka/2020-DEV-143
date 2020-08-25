@@ -166,4 +166,17 @@ class TicTacToeTests: XCTestCase {
         
         XCTAssertEqual(expected, actual)
     }
+    
+    func testResetGame() {
+        let game = Game()
+        game.playAt(index: 0) // cross
+        game.playAt(index: 1) // circle
+        game.playAt(index: 2) // cross
+        game.playAt(index: 4) // circle
+        game.resetGame()
+        
+        let value = !game.boxes.contains(.cross) || !game.boxes.contains(.circle)
+        
+        XCTAssertFalse(value)
+    }
 }
