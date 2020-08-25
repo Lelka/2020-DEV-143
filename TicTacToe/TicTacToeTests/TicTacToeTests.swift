@@ -10,7 +10,7 @@ import XCTest
 
 class TicTacToeTests: XCTestCase {
 
-    func testFirstPlayerIsCross {
+    func testFirstPlayerIsCross() {
         
         let game = Game()
         let firstPlayer: Player = .cross

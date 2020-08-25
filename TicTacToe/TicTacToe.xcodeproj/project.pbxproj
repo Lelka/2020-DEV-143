@@ -14,6 +14,7 @@
 		1C22906A24F501BD00C3F390 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C22906924F501BD00C3F390 /* Assets.xcassets */; };
 		1C22906D24F501BD00C3F390 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C22906B24F501BD00C3F390 /* LaunchScreen.storyboard */; };
 		1C22907824F501BD00C3F390 /* TicTacToeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C22907724F501BD00C3F390 /* TicTacToeTests.swift */; };
+		1C22908424F5053700C3F390 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C22908324F5053700C3F390 /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		1C22907324F501BD00C3F390 /* TicTacToeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicTacToeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C22907724F501BD00C3F390 /* TicTacToeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeTests.swift; sourceTree = "<group>"; };
 		1C22907924F501BD00C3F390 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1C22908324F5053700C3F390 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		1C22905F24F501BB00C3F390 /* TicTacToe */ = {
 			isa = PBXGroup;
 			children = (
+				1C22908224F5052200C3F390 /* Model */,
 				1C22906024F501BB00C3F390 /* AppDelegate.swift */,
 				1C22906224F501BB00C3F390 /* SceneDelegate.swift */,
 				1C22906424F501BB00C3F390 /* ViewController.swift */,
@@ -97,6 +100,14 @@
 				1C22907924F501BD00C3F390 /* Info.plist */,
 			);
 			path = TicTacToeTests;
+			sourceTree = "<group>";
+		};
+		1C22908224F5052200C3F390 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1C22908324F5053700C3F390 /* Game.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +214,7 @@
 				1C22906524F501BB00C3F390 /* ViewController.swift in Sources */,
 				1C22906124F501BB00C3F390 /* AppDelegate.swift in Sources */,
 				1C22906324F501BB00C3F390 /* SceneDelegate.swift in Sources */,
+				1C22908424F5053700C3F390 /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
