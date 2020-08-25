@@ -31,6 +31,10 @@ class GameViewModel {
         return localized("GAGNE !!!")
     }
     
+    var currentPlayerImageName: String {
+        return ""
+    }
+    
     func playAt(index: Int) {
         if game.canPlayAt(index: index) {
             game.playAt(index: index)
