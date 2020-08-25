@@ -15,9 +15,13 @@ enum Player {
 
 class Game {
     
-    let currentPlayer: Player
+    var currentPlayer: Player
     
     init() {
         currentPlayer = .cross
+    }
+    
+    func play() {
+        currentPlayer = .circle
     }
 }
