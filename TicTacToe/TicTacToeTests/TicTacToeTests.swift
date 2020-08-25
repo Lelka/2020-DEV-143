@@ -10,4 +10,12 @@ import XCTest
 
 class TicTacToeTests: XCTestCase {
 
+    func testFirstPlayerIsCross {
+        
+        let game = Game()
+        let firstPlayer: Player = .cross
+        let currentPlayer = game.currentPlayer
+        
+        XCTAssertEqual(currentPlayer, firstPlayer)
+    }
 }
