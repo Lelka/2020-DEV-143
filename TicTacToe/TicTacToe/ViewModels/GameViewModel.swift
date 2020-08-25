@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Protocols
+
 protocol GameViewModelDelegate: class {
     func gamePlay()
     func gameHasAWinner()
@@ -14,6 +16,8 @@ protocol GameViewModelDelegate: class {
 }
 
 class GameViewModel {
+    
+    // MARK: - Properties
     
     weak var delegate: GameViewModelDelegate?
     
@@ -35,6 +39,8 @@ class GameViewModel {
         return game.currentPlayer.rawValue
     }
     
+    // MARK: - Methods
+    
     func playAt(index: Int) {
         if game.canPlayAt(index: index) {
             delegate?.gamePlay()
@@ -52,6 +58,8 @@ class GameViewModel {
         game.resetGame()
     }
 }
+
+// MARK: - Localization
 
 public func localized(_ id: String) -> String {
     return NSLocalizedString(id, comment: "")

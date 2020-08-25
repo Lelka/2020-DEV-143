@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Enum
+
 enum Player: String {
     case cross
     case circle
@@ -14,6 +16,8 @@ enum Player: String {
 }
 
 class Game {
+    
+    // MARK: - Properties
     
     var currentPlayer: Player = .cross
     
@@ -24,6 +28,8 @@ class Game {
         }
         return array
     }()
+    
+    // MARK: - Methods
     
     func playAt(index: Int) {
         boxes[index] = currentPlayer

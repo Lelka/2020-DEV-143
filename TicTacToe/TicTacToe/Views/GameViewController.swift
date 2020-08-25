@@ -9,6 +9,8 @@ import UIKit
 
 class GameViewController: UIViewController {
     
+    // MARK: - IBOutlet
+    
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
@@ -26,9 +28,13 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var viewBoard: UIView!
     
+    // MARK: - Properties
+    
     var viewModelGame = GameViewModel()
     
     var selectedButton = UIButton()
+    
+    // MARK: - Methods Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +73,8 @@ class GameViewController: UIViewController {
     }
 }
 
+// MARK: - IBActions
+
 extension GameViewController {
     
     @IBAction func buttonTapped(_ sender: UIButton) {
@@ -79,6 +87,8 @@ extension GameViewController {
         initGameBoardUI()
     }
 }
+
+// MARK: - GameViewModelDelegate
 
 extension GameViewController: GameViewModelDelegate {
     
