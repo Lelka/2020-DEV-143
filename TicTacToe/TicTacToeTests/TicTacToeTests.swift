@@ -162,7 +162,7 @@ class TicTacToeTests: XCTestCase {
         game.boxes[7] = .cross
         game.boxes[8] = .cross
         
-        let actual = !game.canPlayAt(index: 0) && !game.gameHasAWinner()
+        let actual = game.isADraw()
         
         XCTAssertEqual(expected, actual)
     }
