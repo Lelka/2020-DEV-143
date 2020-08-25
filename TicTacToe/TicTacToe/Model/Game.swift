@@ -11,14 +11,23 @@ import Foundation
 enum Player {
     case cross
     case circle
+    case none
 }
 
 class Game {
     
     var currentPlayer: Player
     
+    var boxes = [Player]()
+    
     init() {
         currentPlayer = .cross
+        
+        var array = [Player]()
+        for _ in 0...8 {
+            array.append(.none)
+        }
+        boxes = array
     }
     
     func play() {
@@ -26,6 +35,6 @@ class Game {
     }
     
     func canPlayAt(index: Int) -> Bool {
-        return false
+        return boxes[index] == .none
     }
 }

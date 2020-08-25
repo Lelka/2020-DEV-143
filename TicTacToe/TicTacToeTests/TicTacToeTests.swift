@@ -34,6 +34,7 @@ class TicTacToeTests: XCTestCase {
         let expected = false
         
         let game = Game()
+        game.boxes[3] = .cross
         let actual = game.canPlayAt(index: 3)
         
         XCTAssertEqual(expected, actual)
