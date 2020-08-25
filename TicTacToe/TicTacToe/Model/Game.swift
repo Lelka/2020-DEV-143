@@ -30,8 +30,16 @@ class Game {
         boxes = array
     }
     
-    func play() {
-        currentPlayer = .circle
+    func playAt(index: Int) {
+        if canPlayAt(index: index) {
+            boxes[index] = currentPlayer
+            
+            if currentPlayer == .cross {
+                currentPlayer = .circle
+            } else {
+                currentPlayer = .cross
+            }
+        }
     }
     
     func canPlayAt(index: Int) -> Bool {

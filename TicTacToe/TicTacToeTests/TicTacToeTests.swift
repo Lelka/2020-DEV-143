@@ -41,13 +41,17 @@ class TicTacToeTests: XCTestCase {
     }
     
     func testPlayersPlayOnTheBoard() {
-        let expected: Player = .cross
+        let expectedCross: Player = .cross
+        let expectedCircle: Player = .circle
         
         let game = Game()
         game.playAt(index: 0)
+        game.playAt(index: 3)
         
-        let player = game.boxes[0]
+        let crossPlayer = game.boxes[0]
+        let circlePlayer = game.boxes[3]
         
-        XCTAssertEqual(expected, player)
+        XCTAssertEqual(expectedCross, crossPlayer)
+        XCTAssertEqual(expectedCircle, circlePlayer)
     }
 }
