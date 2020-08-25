@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Player {
+enum Player: String {
     case cross
     case circle
     case none

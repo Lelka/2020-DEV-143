@@ -32,7 +32,7 @@ class GameViewModel {
     }
     
     var currentPlayerImageName: String {
-        return ""
+        return game.currentPlayer.rawValue
     }
     
     func playAt(index: Int) {
