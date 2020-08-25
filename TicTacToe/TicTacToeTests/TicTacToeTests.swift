@@ -18,4 +18,15 @@ class TicTacToeTests: XCTestCase {
         
         XCTAssertEqual(currentPlayer, firstPlayer)
     }
+    
+    func testExpectedNextPlayerAfterFirstMove() {
+        let nextPlayer: Player = .circle
+        
+        let game = Game()
+        game.play()
+        
+        let currentPlayer = game.currentPlayer
+        
+        XCTAssertEqual(currentPlayer, nextPlayer)
+    }
 }
