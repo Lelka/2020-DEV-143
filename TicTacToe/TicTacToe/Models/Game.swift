@@ -67,6 +67,10 @@ class Game {
         return hasAWinner
     }
     
+    func isADraw() -> Bool {
+        return !boxes.contains(.none) && !gameHasAWinner()
+    }
+    
     func resetGame() {
         currentPlayer = .cross
         
