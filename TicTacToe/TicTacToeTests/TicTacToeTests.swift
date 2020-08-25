@@ -23,7 +23,7 @@ class TicTacToeTests: XCTestCase {
         let nextPlayer: Player = .circle
         
         let game = Game()
-        game.play()
+        game.playAt(index: 0)
         
         let currentPlayer = game.currentPlayer
         
@@ -38,5 +38,16 @@ class TicTacToeTests: XCTestCase {
         let actual = game.canPlayAt(index: 3)
         
         XCTAssertEqual(expected, actual)
+    }
+    
+    func testPlayersPlayOnTheBoard() {
+        let expected: Player = .cross
+        
+        let game = Game()
+        game.playAt(index: 0)
+        
+        let player = game.boxes[0]
+        
+        XCTAssertEqual(expected, player)
     }
 }
