@@ -115,6 +115,7 @@ class TicTacToeTests: XCTestCase {
     
     func testCrossWinsTheGame() {
         let expected = true
+        let winner: Player = .cross
         
         let game = Game()
         game.playAt(index: 0) // cross
@@ -126,5 +127,6 @@ class TicTacToeTests: XCTestCase {
         let actual = game.gameHasAWinner()
         
         XCTAssertEqual(expected, actual)
+        XCTAssertEqual(winner, game.currentPlayer)
     }
 }
