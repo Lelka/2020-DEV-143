@@ -93,4 +93,23 @@ class TicTacToeTests: XCTestCase {
         XCTAssertTrue(game.boxes[4] == .cross)
         XCTAssertTrue(game.boxes[8] == .cross)
     }
+    
+    func testFillTheBoard() {
+        let expected = false
+        
+        let game = Game()
+        game.playAt(index: 0) // cross
+        game.playAt(index: 1) // circle
+        game.playAt(index: 2) // cross
+        game.playAt(index: 3) // circle
+        game.playAt(index: 4) // cross
+        game.playAt(index: 5) // circle
+        game.playAt(index: 6) // cross
+        game.playAt(index: 7) // circle
+        game.playAt(index: 8) // cross
+        
+        let actual = game.boxes.contains(.none)
+        
+        XCTAssertEqual(expected, actual)
+    }
 }
