@@ -129,4 +129,22 @@ class TicTacToeTests: XCTestCase {
         XCTAssertEqual(expected, actual)
         XCTAssertEqual(winner, game.currentPlayer)
     }
+    
+    func testCircleWinsTheGame() {
+        let expected = true
+        let winner: Player = .circle
+        
+        let game = Game()
+        game.playAt(index: 0) // cross
+        game.playAt(index: 1) // circle
+        game.playAt(index: 2) // cross
+        game.playAt(index: 4) // circle
+        game.playAt(index: 8) // cross
+        game.playAt(index: 7) // circle
+        
+        let actual = game.gameHasAWinner()
+        
+        XCTAssertEqual(expected, actual)
+        XCTAssertEqual(winner, game.currentPlayer)
+    }
 }
