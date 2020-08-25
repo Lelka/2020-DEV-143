@@ -55,6 +55,7 @@ class GameViewController: UIViewController {
         button8.setBackgroundImage(nil, for: .normal)
         button9.setBackgroundImage(nil, for: .normal)
         
+        ivCurrentPlayer.isHidden = false
         ivCurrentPlayer.image = UIImage(named: viewModelGame.currentPlayerImageName)
         
         btPlayAgain.layer.cornerRadius = 5
@@ -102,6 +103,7 @@ extension GameViewController: GameViewModelDelegate {
     }
     
     func gameIsADraw() {
-        
+        ivCurrentPlayer.isHidden = true
+        lbInfos.text = viewModelGame.drawText
     }
 }

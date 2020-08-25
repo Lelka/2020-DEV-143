@@ -35,6 +35,10 @@ class GameViewModel {
         return localized("GAGNE !!!")
     }
     
+    var drawText: String {
+        return localized("MATCH NUL !!!")
+    }
+    
     var currentPlayerImageName: String {
         return game.currentPlayer.rawValue
     }
