@@ -67,17 +67,31 @@ class GameViewController: UIViewController {
     }
 }
 
+extension GameViewController {
+    
+    @IBAction func buttonTapped(_ sender: UIButton) {
+        selectedButton = sender
+        viewModelGame.playAt(index: sender.tag)
+    }
+    
+    @IBAction func replayAction(_ sender: UIButton) {
+        viewModelGame.resetGame()
+        initGameBoardUI()
+    }
+}
+
 extension GameViewController: GameViewModelDelegate {
+    
     func gamePlay() {
-        
+        selectedButton.setBackgroundImage(UIImage(named: viewModelGame.currentPlayerImageName), for: .normal)
     }
     
     func gameHasAWinner() {
-        
+        lbInfos.text = viewModelGame.winText
+        ivCurrentPlayer.image = UIImage(named: viewModelGame.currentPlayerImageName)
     }
     
     func gameIsADraw() {
         
     }
 }
-
