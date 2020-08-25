@@ -7,11 +7,15 @@
 
 import Foundation
 
-public func localized(_ id: String) -> String {
-    return NSLocalizedString(id, comment: "")
+protocol GameViewModelDelegate: class {
+    func gameHasAWinner()
+    func gameIsADraw()
 }
 
 class GameViewModel {
+    
+    weak var delegate: GameViewModelDelegate?
+    
     var game = Game()
     
     var informationText: String {
@@ -31,6 +35,12 @@ class GameViewModel {
             game.playAt(index: index)
         } else if game.gameHasAWinner() {
             
+        } else if game.isADraw() {
+            
         }
     }
+}
+
+public func localized(_ id: String) -> String {
+    return NSLocalizedString(id, comment: "")
 }
