@@ -37,8 +37,8 @@ class GameViewModel {
     
     func playAt(index: Int) {
         if game.canPlayAt(index: index) {
-            game.playAt(index: index)
             delegate?.gamePlay()
+            game.playAt(index: index)
             
             if game.gameHasAWinner() {
                 delegate?.gameHasAWinner()
@@ -46,6 +46,10 @@ class GameViewModel {
                 delegate?.gameIsADraw()
             }
         }
+    }
+    
+    func resetGame() {
+        game.resetGame()
     }
 }
 
