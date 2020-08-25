@@ -30,7 +30,7 @@ class TicTacToeTests: XCTestCase {
         XCTAssertEqual(currentPlayer, nextPlayer)
     }
     
-    func testIfPlayerCanPlayAtPosition() {
+    func testPlayerCannotPlayOnPlayedPosition() {
         let expected = false
         
         let game = Game()
