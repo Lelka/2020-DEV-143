@@ -26,21 +26,19 @@ class Game {
     }()
     
     func playAt(index: Int) {
-        if canPlayAt(index: index) {
-            boxes[index] = currentPlayer
-            
-            if !gameHasAWinner() {
-                if currentPlayer == .cross {
-                    currentPlayer = .circle
-                } else {
-                    currentPlayer = .cross
-                }
+        boxes[index] = currentPlayer
+        
+        if !gameHasAWinner() {
+            if currentPlayer == .cross {
+                currentPlayer = .circle
+            } else {
+                currentPlayer = .cross
             }
         }
     }
     
     func canPlayAt(index: Int) -> Bool {
-        return boxes[index] == .none
+        return boxes[index] == .none && !gameHasAWinner()
     }
     
     func gameHasAWinner() -> Bool {
