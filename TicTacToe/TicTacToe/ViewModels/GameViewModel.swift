@@ -11,7 +11,7 @@ import Foundation
 
 protocol GameViewModelDelegate: class {
     func updateTappedButton()
-    func updateNextPlayerImage()
+    func updateNextTurnImage()
     func gameHasAWinner()
     func gameIsADraw()
 }
@@ -40,26 +40,55 @@ class GameViewModel {
         return localized("MATCH NUL !!!")
     }
     
-    var currentPlayerImageName: String {
+    var currentTurn: Turn {
+        return game.currentTurn
+    }
+    
+    var currentTurnImageName: String {
         return game.currentTurn.rawValue
+    }
+    
+    var boxes: [Turn] {
+        get {
+            return game.boxes
+        }
+        set(newValue) {
+            game.boxes = newValue
+        }
     }
     
     // MARK: - Methods
     
     func playAt(index: Int) {
-        if game.canPlayAt(index: index) {
+        if canPlayAt(index: index) {
             delegate?.updateTappedButton()
             game.playAt(index: index)
             
-            if !game.gameHasAWinner() {
+            if !gameHasAWinner() {
                 game.switchTurn()
-                delegate?.updateNextPlayerImage()
-            } else if game.gameHasAWinner() {
+                delegate?.updateNextTurnImage()
+            } else if gameHasAWinner() {
                 delegate?.gameHasAWinner()
-            } else if game.isADraw() {
+            } else if isADraw() {
                 delegate?.gameIsADraw()
             }
         }
+    }
+    
+    func canPlayAt(index: Int) -> Bool {
+        return game.canPlayAt(index: index)
+    }
+    
+    func gameHasAWinner() -> Bool {
+        return game.gameHasAWinner()
+    }
+    
+    func isADraw() -> Bool {
+        return game.isADraw()
+    }
+    
+    func setBoxesAt(index: Int, value: Turn) {
+        game.boxes[index] = value
     }
     
     func resetGame() {
