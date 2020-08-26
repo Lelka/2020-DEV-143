@@ -60,6 +60,8 @@ class GameViewModel {
     // MARK: - Methods
     
     func playAt(index: Int) {
+        guard index >= 0, index < 9 else { return }
+        
         if canPlayAt(index: index) {
             delegate?.updateTappedButton()
             game.playAt(index: index)
@@ -76,6 +78,8 @@ class GameViewModel {
     }
     
     func canPlayAt(index: Int) -> Bool {
+        guard index >= 0, index < 9 else { return false }
+        
         return game.canPlayAt(index: index)
     }
     
@@ -88,6 +92,8 @@ class GameViewModel {
     }
     
     func setBoxesAt(index: Int, value: Status) {
+        guard index >= 0, index < 9 else { return }
+        
         game.boxes[index] = value
     }
     
