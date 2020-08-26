@@ -94,6 +94,10 @@ class GameViewModel {
     func resetGame() {
         game = Game()
     }
+    
+    func getWinningLines() -> [[Int]]  {
+        return game.winningLines
+    }
 }
 
 // MARK: - Localization
