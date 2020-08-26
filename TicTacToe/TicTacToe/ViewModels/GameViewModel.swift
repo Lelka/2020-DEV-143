@@ -64,13 +64,13 @@ class GameViewModel {
             delegate?.updateTappedButton()
             game.playAt(index: index)
             
-            if !gameHasAWinner() {
-                game.switchTurn()
-                delegate?.updateNextTurnImage()
+            if isADraw() {
+                delegate?.gameIsADraw()
             } else if gameHasAWinner() {
                 delegate?.gameHasAWinner()
-            } else if isADraw() {
-                delegate?.gameIsADraw()
+            } else {
+                game.switchTurn()
+                delegate?.updateNextTurnImage()
             }
         }
     }
