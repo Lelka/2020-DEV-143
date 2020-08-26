@@ -46,14 +46,23 @@ class GameViewController: UIViewController {
     
     func initGameBoardUI() {
         button1.setBackgroundImage(nil, for: .normal)
+        button1.tag = 0
         button2.setBackgroundImage(nil, for: .normal)
+        button2.tag = 1
         button3.setBackgroundImage(nil, for: .normal)
+        button3.tag = 2
         button4.setBackgroundImage(nil, for: .normal)
+        button4.tag = 3
         button5.setBackgroundImage(nil, for: .normal)
+        button5.tag = 4
         button6.setBackgroundImage(nil, for: .normal)
+        button6.tag = 5
         button7.setBackgroundImage(nil, for: .normal)
+        button7.tag = 6
         button8.setBackgroundImage(nil, for: .normal)
+        button8.tag = 7
         button9.setBackgroundImage(nil, for: .normal)
+        button9.tag = 8
         
         ivCurrentStatus.isHidden = false
         ivCurrentStatus.image = UIImage(named: viewModelGame.currentStatusImageName)
