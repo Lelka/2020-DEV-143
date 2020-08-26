@@ -10,27 +10,27 @@ import XCTest
 
 class TicTacToeTests: XCTestCase {
 
-    func testFirstPlayerIsCross() {
+    func testCheckIfFirstTurnIsCross() {
         
         let gameVM = GameViewModel()
-        let firstPlayer: Turn = .cross
-        let currentPlayer = gameVM.currentTurn
+        let firstTurn: Turn = .cross
+        let currentTurn = gameVM.currentTurn
         
-        XCTAssertEqual(currentPlayer, firstPlayer)
+        XCTAssertEqual(currentTurn, firstTurn)
     }
     
-    func testExpectedNextPlayerAfterFirstMove() {
-        let nextPlayer: Turn = .circle
+    func testSecondTurnIsCircle() {
+        let nextTurn: Turn = .circle
         
         let gameVM = GameViewModel()
         gameVM.playAt(index: 0)
         
-        let currentPlayer = gameVM.currentTurn
+        let currentTurn = gameVM.currentTurn
         
-        XCTAssertEqual(currentPlayer, nextPlayer)
+        XCTAssertEqual(currentTurn, nextTurn)
     }
     
-    func testPlayerCannotPlayOnPlayedPosition() {
+    func testCannotPlayOnPlayedPosition() {
         let expected = false
         
         let gameVM = GameViewModel()
@@ -40,7 +40,7 @@ class TicTacToeTests: XCTestCase {
         XCTAssertEqual(expected, actual)
     }
     
-    func testPlayersPlayOnTheBoard() {
+    func testPlayOnTheBoard() {
         let expectedCross: Turn = .cross
         let expectedCircle: Turn = .circle
         
@@ -48,11 +48,11 @@ class TicTacToeTests: XCTestCase {
         gameVM.playAt(index: 0)
         gameVM.playAt(index: 3)
         
-        let crossPlayer = gameVM.boxes[0]
-        let circlePlayer = gameVM.boxes[3]
+        let crossTurn = gameVM.boxes[0]
+        let circleTurn = gameVM.boxes[3]
         
-        XCTAssertEqual(expectedCross, crossPlayer)
-        XCTAssertEqual(expectedCircle, circlePlayer)
+        XCTAssertEqual(expectedCross, crossTurn)
+        XCTAssertEqual(expectedCircle, circleTurn)
     }
     
     func testPlayerHasThreeInARowHorizontally() {
