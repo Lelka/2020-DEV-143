@@ -14,7 +14,7 @@ class TicTacToeTests: XCTestCase {
         
         let game = Game()
         let firstPlayer: Turn = .cross
-        let currentPlayer = game.currentPlayer
+        let currentPlayer = game.currentTurn
         
         XCTAssertEqual(currentPlayer, firstPlayer)
     }
@@ -25,7 +25,7 @@ class TicTacToeTests: XCTestCase {
         let game = Game()
         game.playAt(index: 0)
         
-        let currentPlayer = game.currentPlayer
+        let currentPlayer = game.currentTurn
         
         XCTAssertEqual(currentPlayer, nextPlayer)
     }
@@ -127,7 +127,7 @@ class TicTacToeTests: XCTestCase {
         let actual = game.gameHasAWinner()
         
         XCTAssertEqual(expected, actual)
-        XCTAssertEqual(winner, game.currentPlayer)
+        XCTAssertEqual(winner, game.currentTurn)
     }
     
     func testCircleWinsTheGame() {
@@ -145,7 +145,7 @@ class TicTacToeTests: XCTestCase {
         let actual = game.gameHasAWinner()
         
         XCTAssertEqual(expected, actual)
-        XCTAssertEqual(winner, game.currentPlayer)
+        XCTAssertEqual(winner, game.currentTurn)
     }
     
     func testGameIsADraw() {
@@ -179,6 +179,6 @@ class TicTacToeTests: XCTestCase {
         let expectedPlayer: Turn = .cross
         
         XCTAssertTrue(value)
-        XCTAssertEqual(expectedPlayer, game.currentPlayer)
+        XCTAssertEqual(expectedPlayer, game.currentTurn)
     }
 }
