@@ -29,6 +29,19 @@ class Game {
         return array
     }()
     
+    let winningLines: [[Int]] = {
+        var array = [[Int]]()
+        array.append([0,1,2]) // topWinningRow
+        array.append([3,4,5]) // middleWinningRow
+        array.append([6,7,8]) // bottomWinningRow
+        array.append([0,3,6]) // leftWinningCol
+        array.append([1,4,7]) // middleWinningCol
+        array.append([2,5,8]) // rightWinningCol
+        array.append([0,4,8]) // firstDiagonal
+        array.append([2,4,6]) // secondDiagonal
+        return array
+    }()
+    
     // MARK: - Methods
     
     func playAt(index: Int) {
@@ -50,16 +63,6 @@ class Game {
     func gameHasAWinner() -> Bool {
         var hasAWinner = false
         
-        var winningLines = [[Int]]()
-        winningLines.append([0,1,2]) // topWinningRow
-        winningLines.append([3,4,5]) // middleWinningRow
-        winningLines.append([6,7,8]) // bottomWinningRow
-        winningLines.append([0,3,6]) // leftWinningCol
-        winningLines.append([1,4,7]) // middleWinningCol
-        winningLines.append([2,5,8]) // rightWinningCol
-        winningLines.append([0,4,8]) // firstDiagonal
-        winningLines.append([2,4,6]) // secondDiagonal
-        
         for winLine in winningLines {
             
             if boxes[winLine[0]] != .none &&
@@ -75,15 +78,5 @@ class Game {
     
     func isADraw() -> Bool {
         return !boxes.contains(.none) && !gameHasAWinner()
-    }
-    
-    func resetGame() {
-        currentPlayer = .cross
-        
-        var array = [Player]()
-        for _ in 0...8 {
-            array.append(.none)
-        }
-        boxes = array
     }
 }
