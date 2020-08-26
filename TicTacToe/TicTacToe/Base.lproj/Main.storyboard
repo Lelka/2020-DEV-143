@@ -163,7 +163,7 @@
                         <outlet property="button7" destination="6Gl-MN-88M" id="AwE-vE-4Rg"/>
                         <outlet property="button8" destination="1Nh-bu-L4j" id="iMC-xZ-qQj"/>
                         <outlet property="button9" destination="6AV-aZ-CMI" id="r0V-AD-u8o"/>
-                        <outlet property="ivCurrentPlayer" destination="I8h-ZI-ftW" id="2Ns-0C-U2y"/>
+                        <outlet property="ivCurrentTurn" destination="I8h-ZI-ftW" id="2Ns-0C-U2y"/>
                         <outlet property="lbInfos" destination="PfC-y5-zDb" id="TJJ-8h-6aT"/>
                         <outlet property="viewBoard" destination="jzM-uC-x7c" id="nbK-0L-4pN"/>
                     </connections>
