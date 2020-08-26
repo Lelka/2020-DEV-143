@@ -162,4 +162,20 @@ class TicTacToeTests: XCTestCase {
         XCTAssertTrue(value)
         XCTAssertEqual(expectedPlayer, gameVM.currentStatus)
     }
+    
+    func testCorrectWinningLines() {
+        var expectedArray = [[Int]]()
+        expectedArray.append([0,1,2]) // topWinningRow
+        expectedArray.append([3,4,5]) // middleWinningRow
+        expectedArray.append([6,7,8]) // bottomWinningRow
+        expectedArray.append([0,3,6]) // leftWinningCol
+        expectedArray.append([1,4,7]) // middleWinningCol
+        expectedArray.append([2,5,8]) // rightWinningCol
+        expectedArray.append([0,4,8]) // firstDiagonal
+        expectedArray.append([2,4,6]) // secondDiagonal
+        
+        let gameVM = GameViewModel()
+        
+        XCTAssertEqual(expectedArray, gameVM.getWinningLines())
+    }
 }
