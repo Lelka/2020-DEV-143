@@ -94,25 +94,6 @@ class TicTacToeTests: XCTestCase {
         XCTAssertTrue(gameVM.boxes[8] == .cross)
     }
     
-    func testFillTheBoard() {
-        let expected = false
-        
-        let gameVM = GameViewModel()
-        gameVM.playAt(index: 0) // cross
-        gameVM.playAt(index: 1) // circle
-        gameVM.playAt(index: 2) // cross
-        gameVM.playAt(index: 3) // circle
-        gameVM.playAt(index: 4) // cross
-        gameVM.playAt(index: 5) // circle
-        gameVM.playAt(index: 6) // cross
-        gameVM.playAt(index: 7) // circle
-        gameVM.playAt(index: 8) // cross
-        
-        let actual = gameVM.boxes.contains(.none)
-        
-        XCTAssertEqual(expected, actual)
-    }
-    
     func testCrossWinsTheGame() {
         let expected = true
         let winner: Turn = .cross
