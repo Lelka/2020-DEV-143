@@ -10,24 +10,24 @@ import XCTest
 
 class TicTacToeTests: XCTestCase {
 
-    func testCheckIfFirstTurnIsCross() {
+    func testCheckIfFirstStatusIsCross() {
         
         let gameVM = GameViewModel()
-        let firstTurn: Turn = .cross
-        let currentTurn = gameVM.currentTurn
+        let firstStatus: Status = .cross
+        let currentStatus = gameVM.currentStatus
         
-        XCTAssertEqual(currentTurn, firstTurn)
+        XCTAssertEqual(currentStatus, firstStatus)
     }
     
-    func testSecondTurnIsCircle() {
-        let nextTurn: Turn = .circle
+    func testSecondIsCircle() {
+        let nextStatus: Status = .circle
         
         let gameVM = GameViewModel()
         gameVM.playAt(index: 0)
         
-        let currentTurn = gameVM.currentTurn
+        let currentStatus = gameVM.currentStatus
         
-        XCTAssertEqual(currentTurn, nextTurn)
+        XCTAssertEqual(currentStatus, nextStatus)
     }
     
     func testCannotPlayOnPlayedPosition() {
@@ -41,18 +41,18 @@ class TicTacToeTests: XCTestCase {
     }
     
     func testPlayOnTheBoard() {
-        let expectedCross: Turn = .cross
-        let expectedCircle: Turn = .circle
+        let expectedCross: Status = .cross
+        let expectedCircle: Status = .circle
         
         let gameVM = GameViewModel()
         gameVM.playAt(index: 0)
         gameVM.playAt(index: 3)
         
-        let crossTurn = gameVM.boxes[0]
-        let circleTurn = gameVM.boxes[3]
+        let crossStatus = gameVM.boxes[0]
+        let circleStatus = gameVM.boxes[3]
         
-        XCTAssertEqual(expectedCross, crossTurn)
-        XCTAssertEqual(expectedCircle, circleTurn)
+        XCTAssertEqual(expectedCross, crossStatus)
+        XCTAssertEqual(expectedCircle, circleStatus)
     }
     
     func testPlayerHasThreeInARowHorizontally() {
@@ -96,7 +96,7 @@ class TicTacToeTests: XCTestCase {
     
     func testCrossWinsTheGame() {
         let expected = true
-        let winner: Turn = .cross
+        let winner: Status = .cross
         
         let gameVM = GameViewModel()
         gameVM.playAt(index: 0) // cross
@@ -108,12 +108,12 @@ class TicTacToeTests: XCTestCase {
         let actual = gameVM.gameHasAWinner()
         
         XCTAssertEqual(expected, actual)
-        XCTAssertEqual(winner, gameVM.currentTurn)
+        XCTAssertEqual(winner, gameVM.currentStatus)
     }
     
     func testCircleWinsTheGame() {
         let expected = true
-        let winner: Turn = .circle
+        let winner: Status = .circle
         
         let gameVM = GameViewModel()
         gameVM.playAt(index: 0) // cross
@@ -126,7 +126,7 @@ class TicTacToeTests: XCTestCase {
         let actual = gameVM.gameHasAWinner()
         
         XCTAssertEqual(expected, actual)
-        XCTAssertEqual(winner, gameVM.currentTurn)
+        XCTAssertEqual(winner, gameVM.currentStatus)
     }
     
     func testGameIsADraw() {
@@ -157,9 +157,9 @@ class TicTacToeTests: XCTestCase {
         gameVM.resetGame()
         
         let value = !gameVM.boxes.contains(.cross) && !gameVM.boxes.contains(.circle)
-        let expectedPlayer: Turn = .cross
+        let expectedPlayer: Status = .cross
         
         XCTAssertTrue(value)
-        XCTAssertEqual(expectedPlayer, gameVM.currentTurn)
+        XCTAssertEqual(expectedPlayer, gameVM.currentStatus)
     }
 }

@@ -22,7 +22,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var button9: UIButton!
     @IBOutlet weak var btPlayAgain: UIButton!
     
-    @IBOutlet weak var ivCurrentTurn: UIImageView!
+    @IBOutlet weak var ivCurrentStatus: UIImageView!
     
     @IBOutlet weak var lbInfos: UILabel!
     
@@ -55,8 +55,8 @@ class GameViewController: UIViewController {
         button8.setBackgroundImage(nil, for: .normal)
         button9.setBackgroundImage(nil, for: .normal)
         
-        ivCurrentTurn.isHidden = false
-        ivCurrentTurn.image = UIImage(named: viewModelGame.currentTurnImageName)
+        ivCurrentStatus.isHidden = false
+        ivCurrentStatus.image = UIImage(named: viewModelGame.currentStatusImageName)
         
         btPlayAgain.layer.cornerRadius = 5
         btPlayAgain.layer.borderWidth = 2
@@ -94,20 +94,20 @@ extension GameViewController {
 extension GameViewController: GameViewModelDelegate {
     
     func updateTappedButton() {
-        selectedButton.setBackgroundImage(UIImage(named: viewModelGame.currentTurnImageName), for: .normal)
+        selectedButton.setBackgroundImage(UIImage(named: viewModelGame.currentStatusImageName), for: .normal)
     }
     
-    func updateNextTurnImage() {
-        ivCurrentTurn.image = UIImage(named: viewModelGame.currentTurnImageName)
+    func updateNextStatusImage() {
+        ivCurrentStatus.image = UIImage(named: viewModelGame.currentStatusImageName)
     }
     
     func gameHasAWinner() {
         lbInfos.text = viewModelGame.winText
-        ivCurrentTurn.image = UIImage(named: viewModelGame.currentTurnImageName)
+        ivCurrentStatus.image = UIImage(named: viewModelGame.currentStatusImageName)
     }
     
     func gameIsADraw() {
-        ivCurrentTurn.isHidden = true
+        ivCurrentStatus.isHidden = true
         lbInfos.text = viewModelGame.drawText
     }
 }

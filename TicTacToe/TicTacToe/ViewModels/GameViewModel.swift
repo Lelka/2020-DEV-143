@@ -11,7 +11,7 @@ import Foundation
 
 protocol GameViewModelDelegate: class {
     func updateTappedButton()
-    func updateNextTurnImage()
+    func updateNextStatusImage()
     func gameHasAWinner()
     func gameIsADraw()
 }
@@ -40,15 +40,15 @@ class GameViewModel {
         return localized("MATCH NUL !!!")
     }
     
-    var currentTurn: Turn {
-        return game.currentTurn
+    var currentStatus: Status {
+        return game.currentStatus
     }
     
-    var currentTurnImageName: String {
-        return game.currentTurn.rawValue
+    var currentStatusImageName: String {
+        return game.currentStatus.rawValue
     }
     
-    var boxes: [Turn] {
+    var boxes: [Status] {
         get {
             return game.boxes
         }
@@ -69,8 +69,8 @@ class GameViewModel {
             } else if gameHasAWinner() {
                 delegate?.gameHasAWinner()
             } else {
-                game.switchTurn()
-                delegate?.updateNextTurnImage()
+                game.switchStatus()
+                delegate?.updateNextStatusImage()
             }
         }
     }
@@ -87,7 +87,7 @@ class GameViewModel {
         return game.isADraw()
     }
     
-    func setBoxesAt(index: Int, value: Turn) {
+    func setBoxesAt(index: Int, value: Status) {
         game.boxes[index] = value
     }
     
