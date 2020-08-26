@@ -93,8 +93,12 @@ extension GameViewController {
 
 extension GameViewController: GameViewModelDelegate {
     
-    func gamePlay() {
+    func updateTappedButton() {
         selectedButton.setBackgroundImage(UIImage(named: viewModelGame.currentPlayerImageName), for: .normal)
+    }
+    
+    func updateNextPlayerImage() {
+        ivCurrentPlayer.image = UIImage(named: viewModelGame.currentPlayerImageName)
     }
     
     func gameHasAWinner() {
