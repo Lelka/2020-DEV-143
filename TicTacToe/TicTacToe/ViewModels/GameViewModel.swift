@@ -63,7 +63,7 @@ class GameViewModel {
     }
     
     func resetGame() {
-        game.resetGame()
+        game = Game()
     }
 }
 
