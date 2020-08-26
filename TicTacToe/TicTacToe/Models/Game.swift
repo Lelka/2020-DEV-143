@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - Enum
 
-enum Player: String {
+enum Turn: String {
     case cross
     case circle
     case none
@@ -19,10 +19,10 @@ class Game {
     
     // MARK: - Properties
     
-    var currentPlayer: Player = .cross
+    var currentTurn: Turn = .cross
     
-    var boxes : [Player] =  {
-        var array = [Player]()
+    var boxes : [Turn] =  {
+        var array = [Turn]()
         for _ in 0...8 {
             array.append(.none)
         }
@@ -45,14 +45,14 @@ class Game {
     // MARK: - Methods
     
     func playAt(index: Int) {
-        boxes[index] = currentPlayer
-        
-        if !gameHasAWinner() {
-            if currentPlayer == .cross {
-                currentPlayer = .circle
-            } else {
-                currentPlayer = .cross
-            }
+        boxes[index] = currentTurn
+    }
+    
+    func switchTurn() {
+        if currentTurn == .cross {
+            currentTurn = .circle
+        } else {
+            currentTurn = .cross
         }
     }
     

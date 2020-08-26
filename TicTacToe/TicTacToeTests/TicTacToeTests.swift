@@ -13,14 +13,14 @@ class TicTacToeTests: XCTestCase {
     func testFirstPlayerIsCross() {
         
         let game = Game()
-        let firstPlayer: Player = .cross
+        let firstPlayer: Turn = .cross
         let currentPlayer = game.currentPlayer
         
         XCTAssertEqual(currentPlayer, firstPlayer)
     }
     
     func testExpectedNextPlayerAfterFirstMove() {
-        let nextPlayer: Player = .circle
+        let nextPlayer: Turn = .circle
         
         let game = Game()
         game.playAt(index: 0)
@@ -41,8 +41,8 @@ class TicTacToeTests: XCTestCase {
     }
     
     func testPlayersPlayOnTheBoard() {
-        let expectedCross: Player = .cross
-        let expectedCircle: Player = .circle
+        let expectedCross: Turn = .cross
+        let expectedCircle: Turn = .circle
         
         let game = Game()
         game.playAt(index: 0)
@@ -115,7 +115,7 @@ class TicTacToeTests: XCTestCase {
     
     func testCrossWinsTheGame() {
         let expected = true
-        let winner: Player = .cross
+        let winner: Turn = .cross
         
         let game = Game()
         game.playAt(index: 0) // cross
@@ -132,7 +132,7 @@ class TicTacToeTests: XCTestCase {
     
     func testCircleWinsTheGame() {
         let expected = true
-        let winner: Player = .circle
+        let winner: Turn = .circle
         
         let game = Game()
         game.playAt(index: 0) // cross
@@ -176,7 +176,7 @@ class TicTacToeTests: XCTestCase {
         game.resetGame()
         
         let value = !game.boxes.contains(.cross) && !game.boxes.contains(.circle)
-        let expectedPlayer: Player = .cross
+        let expectedPlayer: Turn = .cross
         
         XCTAssertTrue(value)
         XCTAssertEqual(expectedPlayer, game.currentPlayer)

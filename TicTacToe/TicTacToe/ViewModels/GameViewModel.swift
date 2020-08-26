@@ -10,7 +10,8 @@ import Foundation
 // MARK: - Protocols
 
 protocol GameViewModelDelegate: class {
-    func gamePlay()
+    func updateTappedButton()
+    func updateNextPlayerImage()
     func gameHasAWinner()
     func gameIsADraw()
 }
@@ -40,17 +41,20 @@ class GameViewModel {
     }
     
     var currentPlayerImageName: String {
-        return game.currentPlayer.rawValue
+        return game.currentTurn.rawValue
     }
     
     // MARK: - Methods
     
     func playAt(index: Int) {
         if game.canPlayAt(index: index) {
-            delegate?.gamePlay()
+            delegate?.updateTappedButton()
             game.playAt(index: index)
             
-            if game.gameHasAWinner() {
+            if !game.gameHasAWinner() {
+                game.switchTurn()
+                delegate?.updateNextPlayerImage()
+            } else if game.gameHasAWinner() {
                 delegate?.gameHasAWinner()
             } else if game.isADraw() {
                 delegate?.gameIsADraw()
